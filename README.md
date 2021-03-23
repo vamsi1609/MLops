@@ -30,3 +30,14 @@ Add the data to dvc
 ```bash
 dvc add actual_data\winquality.csv
 ```
+
+Add files to git
+```bash
+git add .
+```
+
+commit
+
+```bash
+git commit -m "First commit"
+```
