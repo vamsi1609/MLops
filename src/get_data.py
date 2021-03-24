@@ -14,10 +14,10 @@ def getData(config_path):
     config=read_params(config_path)
     data_path = config["data_source"]["source"]
     df = pd.read_csv(data_path, sep=",", encoding= 'utf-8')
-    print(df.head(5))
+    return df
 
 if __name__ == "__main__":
     args = argparse.ArgumentParser()
     args.add_argument("--config", default="params.yaml")
     parsed_args = args.parse_args()
-    getData(config_path=parsed_args.config)
+    data = getData(config_path=parsed_args.config)
