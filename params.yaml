@@ -1,0 +1,23 @@
+base:
+  project: winequality
+  random_state: 9
+  target_col: TARGET
+
+data_source:
+  source: actual_data\winequality.csv
+
+load_data:
+  raw_dataset: data\raw\winequality.csv
+
+split_data:
+  train_patch: data\processed\train_winequality.csv
+  test_patch: data\processed\test_winequality.csv
+  test_size: 0.2
+
+estimators:
+  Elaastic_Net:
+    params:
+      alpha: 0.88
+      l1_ratio: 0.89
+
+  
