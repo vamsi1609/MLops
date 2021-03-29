@@ -13,6 +13,7 @@ template_path = os.path.join(webapp_root, "templates")
 
 app = Flask(__name__, static_folder=static_path, template_folder=template_path)
 
+
 def predict(data):
     config = read_params(params_path)
     model_dir_path = config["webapp_model_dir"]
@@ -20,11 +21,18 @@ def predict(data):
     print("nice")
     prediction = model.predict(data)
     print(prediction)
-    return prediction
+    return prediction[0]
 
 
 def api_response(request):
-    pass
+    try:
+        data = np.array([list(request.json.values())])
+        response = predict(data)
+        response = {"response": response}
+    except Exception as e:
+         print(e)
+         error = {"error": "Something went wrong!!! Please try again"}
+         return error    
 
 
 
