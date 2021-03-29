@@ -32,6 +32,7 @@ pytest commands
 pytest -v
 ```
 setup commands
+```bash
 pip install -e .
 ```
 Building the packahe
