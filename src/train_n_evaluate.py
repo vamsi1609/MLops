@@ -33,10 +33,14 @@ def train_n_evaluate(config_path):
     target = config["base"]["target_col"]
 
 
-    train_data=pd.read_csv(train_path, sep=",")
-    test_data=pd.read_csv(train_path, sep=",")
-    y_train = train_data.drop(target, axis=1)
-    y_test = test_data.drop(target, axis=1)
+    train = pd.read_csv(train_path, sep=",")
+    test = pd.read_csv(test_path, sep=",")
+
+    y_train = train[target]
+    y_test = test[target]
+
+    train_data = train.drop(target, axis=1)
+    test_data = test.drop(target, axis=1)
 
     model = ElasticNet(alpha= alpha, l1_ratio= l1_ratio, random_state= random_state)
     
