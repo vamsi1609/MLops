@@ -35,7 +35,7 @@ setup commands
 ```bash
 pip install -e .
 ```
-Building the packahe
+Building the package
 ```bash
 python setup.py sdist bdist_wheel
 ```
