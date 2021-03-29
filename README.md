@@ -17,3 +17,24 @@ Create the necessary folders and files
 ```bash
 python template.py
 ```
+
+tox commands
+```bash
+tox
+```
+rebuilding
+```bash
+tox -r
+```
+
+pytest commands
+```bash
+pytest -v
+```
+setup commands
+pip install -e .
+```
+Building the packahe
+```bash
+python setup.py sdist bdist_wheel
+```
