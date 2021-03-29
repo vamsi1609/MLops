@@ -20,6 +20,7 @@ def get_metrics(ypred,ytest):
     mae= mean_absolute_error(ypred, ytest)
     r2 = r2_score(ytest, ypred)
     return mae, mse, r2
+
 def train_n_evaluate(config_path):
     config = read_params(config_path)
     train_path= config["split_data"]["train_path"]
