@@ -30,7 +30,7 @@ def api_response(request):
     except Exception as e:
          print(e)
          error = {"error": "Something went wrong!!! Please try again"}
-         #return error    
+         return error    
 
 
 
@@ -49,7 +49,7 @@ def index():
         except Exception as e:
             print(e)
             error = {"error": "Something went wrong!!! Please try again"}
-            return render_template("404.html", error=error)
+            #return render_template("404.html", error=error)
         pass
     else:
         return render_template("index.html")
