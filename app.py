@@ -29,7 +29,7 @@ def api_response(request):
         response = {"response": response}
     except Exception as e:
          print(e)
-         error = {"error": "Something went wrong!!! Please try again"}
+         error = {"error": e}
          return error    
 
 
@@ -45,10 +45,10 @@ def index():
                 return render_template("index.html", response=response)
             elif request.json:
                 response= api_response(request)
-                return jsonify(**response)
+                return jsonify(response)
         except Exception as e:
             print(e)
-            error = {"error": "Something went wrong!!! Please try again"}
+            error = {"error": e}
             return render_template("404.html", error=error)
         pass
     else:
