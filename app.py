@@ -45,16 +45,15 @@ def index():
                 return render_template("index.html", response=response)
             elif request.json:
                 response= api_response(request)
-                return jsonify(response)
+                return jsonify(**response)
         except Exception as e:
             print(e)
             error = {"error": "Something went wrong!!! Please try again"}
-            #return render_template("404.html", error=error)
+            return render_template("404.html", error=error)
         pass
     else:
         return render_template("index.html")
 
 
 if __name__ == "__main__":
-    app.debug = True
     app.run(host="127.0.0.1", port=8000, debug=True)
