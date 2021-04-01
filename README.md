@@ -1,6 +1,5 @@
 # Wine quality webservice
-Check the service here
-[go](https://firast-app.herokuapp.com/){:target="_blank" rel="noopener"}
+Check the service https://firast-app.herokuapp.com/
 
 Given certain values of different ingridents used you can predict the possible quality of the wine.
 It ranges between 5-9, where 5 is okay and 9 is extraordinary.
