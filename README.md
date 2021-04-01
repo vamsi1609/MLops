@@ -6,6 +6,7 @@ Given certain values of different ingridents used you can predict the possible q
 It ranges between 5-9, where 5 is okay and 9 is extraordinary.
 ## Want to replicate?
 To get things started follow the instructions.
+
 Creating a Virtual Envirnment
 ```bash
 virtualenv mlops
