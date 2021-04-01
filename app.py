@@ -4,6 +4,7 @@ from src.get_data import read_params
 import yaml
 import joblib
 import numpy as np
+from prediction_service.prediction import NotInRange, get_schema, predict, api_response, check_  
 
 params_path = "params.yaml"
 webapp_root = "webapp"
@@ -14,23 +15,7 @@ template_path = os.path.join(webapp_root, "templates")
 app = Flask(__name__, static_folder=static_path, template_folder=template_path)
 
 
-def predict(data):
-    config = read_params(params_path)
-    model_dir_path = os.path.join("prediction_service", "model","model.joblib")
-    model = joblib.load(model_dir_path)
-    prediction = model.predict(data)
-    return prediction[0]
-
-
-def api_response(request):
-    try:
-        data = np.array([list(request.json.values())])
-        response = predict(data)
-        response = {"response": response}
-    except Exception as e:
-         print(e)
-         error = {"error": e}
-         return error    
+    
 
 
 
@@ -41,7 +26,12 @@ def index():
             if request.form:
                 data = dict(request.form).values()
                 data = [list(map(float,data))]
-                response = predict(data)
+                try: 
+                    data = check_(data)
+                    response = predict(data)
+                except NotInRange as e:
+                    response = {"the_exected_range": get_schema(), "response": str(e) }
+                    return response
                 return render_template("index.html", response=response)
             elif request.json:
                 response= api_response(request)
