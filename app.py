@@ -31,7 +31,7 @@ def index():
                     response = predict(data)
                 except NotInRange as e:
                     response = {"the_exected_range": get_schema(), "response": str(e) }
-                    return response
+                    return render_template("404.html", error={"error":e})
                 return render_template("index.html", response=response)
             elif request.json:
                 response= api_response(request)
