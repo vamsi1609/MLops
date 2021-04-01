@@ -2,10 +2,10 @@
 Check the service here
 https://firast-app.herokuapp.com/
 
-Given certain values of different ingridents used you can predict the possible quality of the wine
-It ranges between 5-9, where 5 is okay and 9 is extraordinary
+Given certain values of different ingridents used you can predict the possible quality of the wine.
+It ranges between 5-9, where 5 is okay and 9 is extraordinary.
 ## Want to replicate?
-To get things started follow the instructions
+To get things started follow the instructions.
 Creating a Virtual Envirnment
 ```bash
 virtualenv mlops
