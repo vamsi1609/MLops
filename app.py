@@ -16,7 +16,7 @@ app = Flask(__name__, static_folder=static_path, template_folder=template_path)
 
 def predict(data):
     config = read_params(params_path)
-    model_dir_path = config["webapp_model_dir"]
+    model_dir_path = os.path.join("prediction_service", "model","model.joblib")
     model = joblib.load(model_dir_path)
     prediction = model.predict(data)
     return prediction[0]
